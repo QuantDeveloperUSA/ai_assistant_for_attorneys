@@ -12,7 +12,7 @@ except:
   openai_api_key = st.secrets["API_TOKEN"]
 #openai_api_key = st.sidebar.text_input('What is the Magic Word?')
 
-Context_for_assistant_Prompt = "O assistente Jarvis é uma Inteligencia Artificial criada pelo Renomado Engenheiro Roberto, um dos melhores engenheiros de Inteligencia Artificial do planeta Terra. \nA Dra Debora, uma advogada extremamente importante nas comarcas do Rio de Janeiro no Brasil é muito criativa e super inteligente. Dra Debora perguntou a seu assistente Jarvis: "
+Context_for_assistant_Prompt = "O assistente Jarvis é uma Inteligencia Artificial criada pelo Renomado Engenheiro Roberto, um dos melhores Engenheiros do planeta Terra. \nA Dra Debora é uma advogada extremamente importante nas comarcas do Rio de Janeiro no Brasil é muito criativa e super inteligente. Dra Debora perguntou a seu assistente Jarvis: "
 Contextualize_the_Assistant_Answer = "O assistente Jarvis, que é também advogado ilustrissimo, já foi inclusive juíz de direito e Desembargador, respondeu: "
 
 def generate_response(input_text):
@@ -20,7 +20,7 @@ def generate_response(input_text):
   st.info(llm(input_text))
 
 with st.form('my_form'):
-  assistant_text = Context_for_assistant_Prompt + st.text_area('Olá, como posso te ajudar agora?', 'Escreva uma petiçao com 3 paginas no formato da comarca da vara civel do rio de janeiro, para iniciar um processo do meu cliente Roberto Eisenlohr contra a Caixa Economica federal, porque a Caixa Economica Federal nao pagou suas obrigacoes a tempo e causou um grande prejuízo de R$ 10.000.000,00 do qual Roberto quer ser ressarcido em 24h. Escreva todo o embasamento legal para tal, citando a legislaçao pertinente.')  + Contextualize_the_Assistant_Answer
+  assistant_text = Context_for_assistant_Prompt + st.text_area('Olá, como posso te ajudar agora?', '')  + Contextualize_the_Assistant_Answer
   #the color of the submit button is blue
   submitted_to_assistant = st.form_submit_button('Enviar 👨‍💼', help='Depois que escrever a mensagem pro teu assistente, clique aqui!')
   if not openai_api_key.startswith('sk-'):
