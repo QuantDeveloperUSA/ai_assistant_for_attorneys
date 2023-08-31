@@ -1,4 +1,5 @@
 import streamlit as st
+from streamlit_extras import Release_Mode
 from langchain.llms import OpenAI
 
 st.title('👨‍⚖️ Assistente I.A. para os melhores advogados do Brasil')
@@ -19,18 +20,7 @@ if openai_api_key == "":
 if openai_api_key == "":
   openai_api_key = st.sidebar.text_input('Qual é a palavra magica?')
 
-def Release_Mode():
- # To load the page without the logo, call the link address with ~/+/ at the end of the URL, example https://ai-assistant-for-doctors.streamlit.app/~/+/
- hide_st_style = """
-              <style>
-              #MainMenu {visibility: hidden;}
-              footer {visibility: hidden;}
-              header {visibility: hidden;}
-              </style>
-              """
- st.markdown(hide_st_style, unsafe_allow_html=True)
-
-
+Release_Mode()
 
 Context_for_assistant_Prompt = "O assistente Jarvis é uma Inteligencia Artificial criada pelo Renomado Engenheiro Roberto, um dos melhores Engenheiros do planeta Terra. \nA Dra Debora é uma advogada extremamente importante nas comarcas do Rio de Janeiro no Brasil é muito criativa e super inteligente. Dra Debora perguntou a seu assistente Jarvis: "
 Contextualize_the_Assistant_Answer = "O assistente Jarvis, que é também advogado ilustrissimo, já foi inclusive juíz de direito e Desembargador, respondeu: "
