@@ -25,12 +25,12 @@ def eat_burger():
               #MainMenu {visibility: hidden;}
               footer {visibility: hidden;}
               header {visibility: hidden;}
-              a[class^="viewerBadge_container"] {visibility: hidden;}
+              a[class="class="viewerBadge_container__r5tak styles_viewerBadge__CvC9N""] {visibility: hidden;}
               </style>
               """
  st.markdown(hide_st_style, unsafe_allow_html=True)
 
-eat_burger()
+
 
 Context_for_assistant_Prompt = "O assistente Jarvis é uma Inteligencia Artificial criada pelo Renomado Engenheiro Roberto, um dos melhores Engenheiros do planeta Terra. \nA Dra Debora é uma advogada extremamente importante nas comarcas do Rio de Janeiro no Brasil é muito criativa e super inteligente. Dra Debora perguntou a seu assistente Jarvis: "
 Contextualize_the_Assistant_Answer = "O assistente Jarvis, que é também advogado ilustrissimo, já foi inclusive juíz de direito e Desembargador, respondeu: "
@@ -48,7 +48,7 @@ with st.form('my_form'):
   if submitted_to_assistant and openai_api_key.startswith('sk-'):
     generate_response(assistant_text)
 
-
+eat_burger()
 # to change the color of the submit button to green, we can use this code
 # submitted_to_assistant = st.form_submit_button('Ask the Assistant 👨‍💼', help='Click to submit the form')    
 
