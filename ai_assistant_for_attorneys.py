@@ -3,20 +3,36 @@ from langchain.llms import OpenAI
 
 st.title('👨‍⚖️ Assistente I.A. para os melhores advogados do Brasil')
 
-# openai_api_key will be read preferably from config.txt if the file exists, otherwise, it will be read from the enviroment variable API_TOKEN
-# Open the file config.txt and read the API_TOKEN from it
-try:
-  with open('config.txt') as f:
-    openai_api_key = f.readline()
-except:
-  openai_api_key = st.secrets["API_TOKEN"]
-#openai_api_key = st.sidebar.text_input('What is the Magic Word?')
+# openai_api_key will be read preferably from config.txt if the file exists, else if it will be read from the enviroment variable API_TOKEN, else if it will be read from the text input field in the sidebar
+# try to Open the file config.txt and read the API_TOKEN from it
+# if the file does not exist, read the API_TOKEN from the enviroment variable API_TOKEN
+# if the enviroment variable does not exist, read the API_TOKEN from the text input field in the sidebar
+openai_api_key = ""
+
+with open('config.txt') as f:
+  openai_api_key = f.readline()
+if openai_api_key == "":
+  openai_api_key = st.secrets["API_TOKEN"]  
+if openai_api_key == "":
+  openai_api_key = st.sidebar.text_input('Qual é a palavra magica?')
+
+def eat_burger():
+ hide_st_style = """
+              <style>
+              #MainMenu {visibility: hidden;}
+              footer {visibility: hidden;}
+              header {visibility: hidden;}
+              </style>
+              """
+ st.markdown(hide_st_style, unsafe_allow_html=True)
+
+eat_burger()
 
 Context_for_assistant_Prompt = "O assistente Jarvis é uma Inteligencia Artificial criada pelo Renomado Engenheiro Roberto, um dos melhores Engenheiros do planeta Terra. \nA Dra Debora é uma advogada extremamente importante nas comarcas do Rio de Janeiro no Brasil é muito criativa e super inteligente. Dra Debora perguntou a seu assistente Jarvis: "
 Contextualize_the_Assistant_Answer = "O assistente Jarvis, que é também advogado ilustrissimo, já foi inclusive juíz de direito e Desembargador, respondeu: "
 
 def generate_response(input_text):
-  llm = OpenAI(temperature=0.7, openai_api_key=openai_api_key)
+  llm = OpenAI(temperature=0.7, openai_api_key=openai_api_key, max_tokens=3000)
   st.info(llm(input_text))
 
 with st.form('my_form'):
