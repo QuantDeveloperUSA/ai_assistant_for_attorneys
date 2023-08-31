@@ -19,13 +19,13 @@ if openai_api_key == "":
 if openai_api_key == "":
   openai_api_key = st.sidebar.text_input('Qual é a palavra magica?')
 
-def eat_burger():
+def Release_Mode():
+ # To load the page without the logo, call the link address with ~/+/ at the end of the URL, example https://ai-assistant-for-doctors.streamlit.app/~/+/
  hide_st_style = """
               <style>
               #MainMenu {visibility: hidden;}
               footer {visibility: hidden;}
               header {visibility: hidden;}
-              a[class="class="viewerBadge_container__r5tak styles_viewerBadge__CvC9N""] {visibility: hidden;}
               </style>
               """
  st.markdown(hide_st_style, unsafe_allow_html=True)
@@ -48,7 +48,7 @@ with st.form('my_form'):
   if submitted_to_assistant and openai_api_key.startswith('sk-'):
     generate_response(assistant_text)
 
-eat_burger()
+Release_Mode()
 # to change the color of the submit button to green, we can use this code
 # submitted_to_assistant = st.form_submit_button('Ask the Assistant 👨‍💼', help='Click to submit the form')    
 
