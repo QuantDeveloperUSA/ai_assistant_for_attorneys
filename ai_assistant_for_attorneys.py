@@ -9,8 +9,11 @@ st.title('👨‍⚖️ Assistente I.A. para os melhores advogados do Brasil')
 # if the enviroment variable does not exist, read the API_TOKEN from the text input field in the sidebar
 openai_api_key = ""
 
-with open('config.txt') as f:
-  openai_api_key = f.readline()
+try:
+  with open('config.txt') as f:
+    openai_api_key = f.readline()
+except:
+  pass
 if openai_api_key == "":
   openai_api_key = st.secrets["API_TOKEN"]  
 if openai_api_key == "":
