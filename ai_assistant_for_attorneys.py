@@ -25,6 +25,7 @@ def eat_burger():
               #MainMenu {visibility: hidden;}
               footer {visibility: hidden;}
               header {visibility: hidden;}
+              div[class^=viewerBadge_] {visibility: hidden;}
               </style>
               """
  st.markdown(hide_st_style, unsafe_allow_html=True)
